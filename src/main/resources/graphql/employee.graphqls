@@ -1,0 +1,60 @@
+schema {
+  query: EmployeeQueries
+  mutation: EmployeeMutations
+}
+
+type EmployeeQueries {
+  employees: [Employee]
+  employee(id: ID!): Employee!
+  employeesByOrganization(organizationId: Int!): [Employee]
+  employeesByDepartment(departmentId: Int!): [Employee]
+  
+   pets: [Pet]
+   pet(id: ID!) : Pet!
+   petByType(AnimalType: Animal!): [Pet]
+
+}
+
+type EmployeeMutations {
+  newEmployee(employee: EmployeeInput!): Employee
+  deleteEmployee(id: ID!) : Boolean
+  updateEmployee(id: ID!, employee: EmployeeInput!): Employee
+}
+
+input EmployeeInput {
+  organizationId: Int!
+  departmentId: Int!
+  name: String!
+  age: Int!
+  position: String!
+  salary: Int!
+}
+
+type Employee {
+  id: ID!
+  organizationId: Int!
+  departmentId: Int!
+  name: String!
+  age: Int!
+  position: String!
+  salary: Int!
+}
+
+############################
+
+type PetQueries {
+  pets: [Pet]
+}
+type Pet {
+    id: Int!
+    name: String
+    type: Animal
+    age: Int
+}
+
+enum Animal {
+    DOG
+    CAT
+    BADGER
+    MAMMOTH
+}

@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: employee-service
+  main:  
+    web-application-type: none
+
+server:
+  port: 8090
+  
+       
+
+eureka:
+  client:
+#    fetch-registry: false
+#    register-with-eureka: false
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+      
+    
+      
+logging:
+  pattern: 
+    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"

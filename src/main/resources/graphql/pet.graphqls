@@ -1,0 +1,19 @@
+type PetQueries {
+   pets: [Pet]
+   pet(id: ID!) : Pet!
+#   petByType(AnimalType: Animal!): [Pet]
+}
+
+type Pet {
+    id: Int!
+    name: String
+    type: Animal
+    age: Int
+}
+
+enum Animal {
+    DOG
+    CAT
+    BADGER
+    MAMMOTH
+}
